@@ -23,20 +23,10 @@ namespace ApiProducerRabbitMQ.Core.Application.UserCase
             return $"Mensagem publicada {messageJson}";
 
         }
-        //public void configureQueue()
-        //{
-        //    model.QueueDeclare(queue: nameQuery, durable: false, exclusive: false, autoDelete: false, arguments: null);
-
-        //}
         public void publish (string message)
         {
-            // configureQueue();
             model.BasicPublish(exchange: "Conta", routingKey: nameQuery, basicProperties: null, body: Encoding.UTF8.GetBytes(message));
         }
-        //public void Listen()
-        //{
-        //    var consumer = new EventingBasicConsumer(model);
-        //    consu
-        //}
+
     }
 }
